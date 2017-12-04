@@ -1,4 +1,4 @@
-# ROSBridgeLib
+# Unity-ROS-Bridge
 A Unity library for communicattion with ROS through [RosBridge](http://wiki.ros.org/rosbridge_suite)
 
 The first version of this I believe origins from [Michael Jenkin](https://github.com/michaeljenkin), in the repo [unityros](https://github.com/michaeljenkin/unityros). He has made a sample unity project showing turtlesim, with good instructions on how to use this project. All honor goes to him.
@@ -31,9 +31,10 @@ Linux part
 1. roslaunch rosbridge_server rosbridge_websocket.launch
 
 ## Example usage
+> location: Assets/Scripts/
 Main object script:
 ``` cs
-public class RealsenseViewer : MonoBehaviour  {
+public class ros_test : MonoBehaviour  {
 	public string ROS_MASTER_URI = "10.0.0.1"; //set your ros master ip
   private ROSBridgeWebSocketConnection ros = null;
     
