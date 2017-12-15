@@ -40,8 +40,9 @@ public class ros_test : MonoBehaviour  {
     
   void Start() {
 		ros = new ROSBridgeWebSocketConnection ("ws://" + ROS_MASTER_URI, 9090);
-		ros.AddPublisher(typeof(pup_test));
-		ros.AddSubscriber(typeof(sub_test));
+		/* set your msgs here */
+		ros.AddPublisher(typeof(pup_test));  //add publisher msg
+		ros.AddSubscriber(typeof(sub_test)); //add subscriber msg
 		ros.Connect ();
   }
   
@@ -54,9 +55,9 @@ public class ros_test : MonoBehaviour  {
   
   // Update is called once per frame in Unity
   void Update () {
-    // publish msg
-		Int32Msg msg = new Int32Msg(3);
-		ros.Publish (pup_test.GetMessageTopic(), msg);
+  	// publish msg
+	Int32Msg msg = new Int32Msg(3); //publish msg data = 3
+	ros.Publish (pup_test.GetMessageTopic(), msg);
     
     ros.Render ();
   }
@@ -65,18 +66,15 @@ public class ros_test : MonoBehaviour  {
 Publisher:
 ``` cs
 public class pup_test : ROSBridgePublisher {
-	
-	
 	public static string GetMessageTopic() {
-		return "pup_test";
+		return "pup_test"; //topic name
 	}  
 	
 	public static string GetMessageType() {
-		return Int32Msg.GetMessageType();
+		return Int32Msg.GetMessageType(); //topic type (ROS message Int32)
 	}
 	
 	public static string ToYAMLString(Int32Msg msg) {
-		//return msg.GetData().ToString();
 		return msg.ToYAMLString();
 	}
 }
@@ -84,13 +82,12 @@ public class pup_test : ROSBridgePublisher {
 Subscriber:
 ``` cs
 public class sub_test : ROSBridgeSubscriber {
-	
 	public static string GetMessageTopic() {
-		return "sub_test";
+		return "sub_test"; //topic name
 	}  
 	
 	public static string GetMessageType() {
-		return StringMsg.GetMessageType();
+		return StringMsg.GetMessageType(); //topic type (ROS message String)
 	}
 	
 	public static ROSBridgeMsg ParseMessage(JSONNode msg) {
