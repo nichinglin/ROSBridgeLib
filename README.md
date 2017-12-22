@@ -11,13 +11,16 @@ This repository does not contain every ROS message. If you need to add one, plea
 ## How to start
 > If you are a beginer, please take a look [here](https://github.com/nichinglin/ROSBridgeLib/wiki).
 
+Install Libary in Linux
+`sudo apt-get install ros-<rosdistro>-rosbridge-server`
+
 Starting a new Unity project:
 
 Windows or Mac part
 1. Openthis repo as an Unity project
 2. Set ROS_MASTER_URI (Show in Example below)
 Linux part
-1. roslaunch rosbridge_server rosbridge_websocket.launch
+1. `roslaunch rosbridge_server rosbridge_websocket.launch`
 
 Using existing project:
 
@@ -28,7 +31,7 @@ Windows or Mac part
 4. Set ROS_MASTER_URI (Show in Example below)
 
 Linux part
-1. roslaunch rosbridge_server rosbridge_websocket.launch
+1. `roslaunch rosbridge_server rosbridge_websocket.launch`
 
 ## Example usage
 > location: Assets/Scripts/
