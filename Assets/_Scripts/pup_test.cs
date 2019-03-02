@@ -10,7 +10,7 @@ public class pup_test : ROSBridgePublisher {
 	
 	
 	public static string GetMessageTopic() {
-		return "pup_test";
+		return "pub_test";
 	}  
 	
 	public static string GetMessageType() {
